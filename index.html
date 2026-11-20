@@ -1,0 +1,251 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://ais-dev-3sml34b7jbjfy2dugthiwk-36311686495.asia-northeast1.run.app/MyCity.html
+Subject: =?utf-8?Q?MyCity=20=E2=80=94=20Simulasi=20Membangun=20Kota=202D?=
+Date: Fri, 20 Nov 2026 20:38:50 +0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--KBu4DuMUWHiTf0Py1p7TwUw0ej47y3ZFakHhO4NzHb----"
+
+
+------MultipartBoundary--KBu4DuMUWHiTf0Py1p7TwUw0ej47y3ZFakHhO4NzHb----
+Content-Type: text/html
+Content-ID: <frame-B8CDB2227F9422D4E559FEE7FD046483@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://ais-dev-3sml34b7jbjfy2dugthiwk-36311686495.asia-northeast1.run.app/MyCity.html
+
+<!DOCTYPE html><html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-05c1d3f1-9e10-4259-93cf-e2e265b73a13@mhtml.blink" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyCity — Simulasi Membangun Kota 2D</title>
+  
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top HUD -->
+    <header class="top-hud">
+      <div class="brand-group">
+        <span class="brand-title">MyCity</span>
+        <div class="day-box">
+          <div class="day-meta">
+            <span id="hudDay">Hari 1</span>
+            <span id="hudSpeedLabel">1x</span>
+          </div>
+          <div class="day-bar-track">
+            <div id="dayBarFill" class="day-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-group">
+        <div class="metric">
+          <span class="metric-label">Uang</span>
+          <span class="metric-value" id="hudMoney">$5.000 <span class="metric-sub positive">(+$0)</span></span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Populasi</span>
+          <span class="metric-value" id="hudPop">0 <span class="metric-sub">/ 0</span></span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Listrik</span>
+          <span class="metric-value " id="hudPower">0 <span class="metric-sub">/ 0 MW</span></span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Kebahagiaan</span>
+          <span class="metric-value positive" id="hudHappy">75%</span>
+        </div>
+      </div>
+
+      <div class="speed-controls" role="group" aria-label="Kecepatan Simulasi">
+        <button class="speed-btn" id="btnPause" type="button" title="Jeda [Spasi]">Jeda</button>
+        <button class="speed-btn active-1x" id="btn1x" type="button">1x</button>
+        <button class="speed-btn" id="btn2x" type="button">2x</button>
+      </div>
+    </header>
+
+    <!-- Main Grid Canvas -->
+    <main class="stage-wrap" id="stageWrap">
+      <canvas id="cityCanvas" aria-label="Peta Kota MyCity 20x20" width="480" height="480"></canvas>
+
+      <aside class="log-panel" aria-label="Log Notifikasi Kota">
+        <button class="log-header" id="logToggleBtn" type="button">
+          <span>Log Kota</span>
+          <span id="logToggleArrow">▼</span>
+        </button>
+        <ul class="log-list" id="logList"><li class="log-item"><span class="log-day">H1</span><span class="log-sev-info">Selamat datang di MyCity! Bangun pembangkit, jalan, dan perumahan.</span></li></ul>
+      </aside>
+    </main>
+
+    <!-- Bottom Toolbar -->
+    <footer class="bottom-bar">
+      <div class="tool-strip" id="toolStrip">
+        <button class="tool-btn active" data-tool="ROAD" type="button">
+          <span class="tool-badge">═</span>
+          <span class="tool-info">
+            <span class="tool-name">Jalan [1]</span>
+            <span class="tool-cost">$50</span>
+          </span>
+        </button>
+        <button class="tool-btn" data-tool="RESIDENTIAL" type="button">
+          <span class="tool-badge" style="color:#4ade80;">R</span>
+          <span class="tool-info">
+            <span class="tool-name">Perumahan [2]</span>
+            <span class="tool-cost">$200</span>
+          </span>
+        </button>
+        <button class="tool-btn" data-tool="COMMERCIAL" type="button">
+          <span class="tool-badge" style="color:#60a5fa;">C</span>
+          <span class="tool-info">
+            <span class="tool-name">Komersial [3]</span>
+            <span class="tool-cost">$300</span>
+          </span>
+        </button>
+        <button class="tool-btn" data-tool="POWER_PLANT" type="button">
+          <span class="tool-badge" style="color:#fbbf24;">⚡</span>
+          <span class="tool-info">
+            <span class="tool-name">Pembangkit [4]</span>
+            <span class="tool-cost">$800</span>
+          </span>
+        </button>
+        <button class="tool-btn" data-tool="PARK" type="button">
+          <span class="tool-badge" style="color:#34d399;">♣</span>
+          <span class="tool-info">
+            <span class="tool-name">Taman Kota [5]</span>
+            <span class="tool-cost">$150</span>
+          </span>
+        </button>
+        <button class="tool-btn" data-tool="DEMOLISH" type="button">
+          <span class="tool-badge" style="color:#fb7185;">✕</span>
+          <span class="tool-info">
+            <span class="tool-name">Buldoser [6]</span>
+            <span class="tool-cost">Refund 50%</span>
+          </span>
+        </button>
+      </div>
+      <div class="inspector-line" id="inspectorLine">Jalan: Menghubungkan bangunan agar berfungsi · Biaya $50 · Perawatan $1/hari</div>
+    </footer>
+  </div>
+
+  
+
+
+</body></html>
+------MultipartBoundary--KBu4DuMUWHiTf0Py1p7TwUw0ej47y3ZFakHhO4NzHb----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-05c1d3f1-9e10-4259-93cf-e2e265b73a13@mhtml.blink
+
+@charset "utf-8";
+
+:root { --bg-canvas: #0f1722; --bg-hud: #16202e; --bg-card: #1e293b; --border: rgba(148, 163, 184, 0.25); --text-main: #f1f5f9; --text-muted: #94a3b8; --emerald: #22c55e; --sky: #38bdf8; --amber: #f59e0b; --rose: #f43f5e; font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif; }
+
+* { box-sizing: border-box; user-select: none; }
+
+html, body { margin: 0px; padding: 0px; width: 100%; height: 100%; overflow: hidden; background: var(--bg-canvas); color: var(--text-main); }
+
+.app-shell { display: flex; flex-direction: column; width: 100vw; height: 100vh; }
+
+.top-hud { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; background: var(--bg-hud); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+
+.brand-group { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+
+.brand-title { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: rgb(248, 250, 252); }
+
+.day-box { display: flex; flex-direction: column; gap: 4px; width: 112px; }
+
+.day-meta { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: rgb(203, 213, 225); font-variant-numeric: tabular-nums; }
+
+.day-bar-track { height: 6px; background: rgb(15, 23, 42); border-radius: 3px; overflow: hidden; }
+
+.day-bar-fill { height: 100%; width: 100%; background: var(--sky); transform-origin: left center; transform: scaleX(0.02); }
+
+.metrics-group { display: flex; align-items: center; gap: 24px; overflow-x: auto; }
+
+.metric { display: flex; flex-direction: column; flex-shrink: 0; }
+
+.metric-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+
+.metric-value { font-family: ui-monospace, "Cascadia Mono", SFMono-Regular, monospace; font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 700; color: rgb(248, 250, 252); }
+
+.metric-sub { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+.positive { color: rgb(74, 222, 128); }
+
+.warning { color: rgb(251, 191, 36); }
+
+.negative { color: rgb(251, 113, 133); }
+
+.speed-controls { display: flex; align-items: center; gap: 4px; background: rgb(15, 23, 42); border: 1px solid var(--border); border-radius: 6px; padding: 2px; flex-shrink: 0; }
+
+.speed-btn { border: none; background: transparent; color: rgb(203, 213, 225); font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+
+.speed-btn:hover { background: rgb(30, 41, 59); color: rgb(255, 255, 255); }
+
+.speed-btn.active-pause { background: var(--amber); color: rgb(15, 23, 42); }
+
+.speed-btn.active-1x { background: var(--emerald); color: rgb(15, 23, 42); }
+
+.speed-btn.active-2x { background: var(--sky); color: rgb(15, 23, 42); }
+
+.stage-wrap { position: relative; flex: 1 1 0%; min-height: 0px; width: 100%; overflow: hidden; }
+
+#cityCanvas { display: block; width: 100%; height: 100%; cursor: crosshair; }
+
+.log-panel { position: absolute; right: 14px; bottom: 14px; width: 280px; background: rgba(20, 30, 44, 0.94); border: 1px solid var(--border); border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.45) 0px 12px 28px; overflow: hidden; z-index: 10; }
+
+.log-header { display: flex; align-items: center; justify-content: space-between; width: 100%; border: none; background: transparent; color: rgb(226, 232, 240); padding: 8px 12px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.log-header:hover { background: rgba(51, 65, 85, 0.45); }
+
+.log-list { list-style: none; margin: 0px; padding: 0px; max-height: 165px; overflow-y: auto; border-top: 1px solid var(--border); }
+
+.log-list.hidden { display: none; }
+
+.log-item { padding: 7px 12px; font-size: 12px; line-height: 1.35; border-bottom: 1px solid rgba(51, 65, 85, 0.45); color: rgb(226, 232, 240); }
+
+.log-item:last-child { border-bottom: none; }
+
+.log-day { font-family: ui-monospace, monospace; font-size: 10px; font-weight: 700; color: rgb(148, 163, 184); margin-right: 6px; }
+
+.log-sev-success { color: rgb(74, 222, 128); }
+
+.log-sev-warning { color: rgb(251, 191, 36); }
+
+.log-sev-danger { color: rgb(251, 113, 133); }
+
+.log-sev-info { color: rgb(56, 189, 248); }
+
+.bottom-bar { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 12px; background: var(--bg-hud); border-top: 1px solid var(--border); flex-shrink: 0; }
+
+.tool-strip { display: flex; align-items: center; justify-content: flex-start; gap: 8px; width: 100%; max-width: 920px; overflow-x: auto; }
+
+@media (min-width: 768px) {
+  .tool-strip { justify-content: center; }
+}
+
+.tool-btn { display: flex; align-items: center; gap: 8px; min-width: 118px; padding: 7px 10px; border-radius: 8px; border: 1px solid rgb(51, 65, 85); background: rgb(15, 23, 42); color: rgb(226, 232, 240); text-align: left; cursor: pointer; flex-shrink: 0; transition: background 0.12s, border-color 0.12s; }
+
+.tool-btn:hover { border-color: rgb(100, 116, 139); background: rgb(30, 41, 59); }
+
+.tool-btn.active { border-color: var(--emerald); background: rgb(20, 83, 45); color: rgb(255, 255, 255); }
+
+.tool-btn.active[data-tool="ROAD"] { border-color: rgb(148, 163, 184); background: rgb(51, 65, 85); }
+
+.tool-btn.active[data-tool="COMMERCIAL"] { border-color: rgb(56, 189, 248); background: rgb(30, 58, 138); }
+
+.tool-btn.active[data-tool="POWER_PLANT"] { border-color: rgb(251, 191, 36); background: rgb(120, 53, 15); }
+
+.tool-btn.active[data-tool="PARK"] { border-color: rgb(45, 212, 191); background: rgb(17, 94, 89); }
+
+.tool-btn.active[data-tool="DEMOLISH"] { border-color: rgb(251, 113, 133); background: rgb(136, 19, 55); }
+
+.tool-badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 5px; background: rgba(15, 23, 42, 0.55); font-size: 13px; font-weight: 800; flex-shrink: 0; }
+
+.tool-info { display: flex; flex-direction: column; min-width: 0px; }
+
+.tool-name { font-size: 12px; font-weight: 700; white-space: nowrap; }
+
+.tool-cost { font-family: ui-monospace, monospace; font-size: 11px; font-weight: 600; opacity: 0.9; }
+
+.inspector-line { font-size: 11px; font-weight: 500; color: rgb(203, 213, 225); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+------MultipartBoundary--KBu4DuMUWHiTf0Py1p7TwUw0ej47y3ZFakHhO4NzHb------
